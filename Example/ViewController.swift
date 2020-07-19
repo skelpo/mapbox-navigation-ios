@@ -37,15 +37,14 @@ class ViewController: UIViewController {
 
     var response: RouteResponse? {
         didSet {
-            guard let routes = response?.routes, let current = routes.first else {
-                startButton.isEnabled = false
-                mapView?.removeRoutes()
+            guard let routes = response?.routes, let currentRoute = routes.first else {
+                clearMapView()
                 return
-                
             }
+            
             startButton.isEnabled = true
             mapView?.show(routes)
-            mapView?.showWaypoints(on: current)
+            mapView?.showWaypoints(on: currentRoute)
         }
     }
     
@@ -180,15 +179,21 @@ class ViewController: UIViewController {
     }
 
     @IBAction func clearMapPressed(_ sender: Any) {
-        clearMap.isHidden = true
-        mapView?.removeRoutes()
-        mapView?.removeWaypoints()
-        waypoints.removeAll()
-        longPressHintView.isHidden = false
+        clearMapView()
     }
 
     @IBAction func startButtonPressed(_ sender: Any) {
         present(alertController, animated: true, completion: nil)
+    }
+    
+    private func clearMapView() {
+        startButton.isEnabled = false
+        clearMap.isHidden = true
+        longPressHintView.isHidden = false
+        
+        mapView?.removeRoutes()
+        mapView?.removeWaypoints()
+        waypoints.removeAll()
     }
 
     // MARK: - Public Methods
