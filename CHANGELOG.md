@@ -30,6 +30,7 @@
 
 ### Offline navigation
 
+* `NavigationDirectionsCompletionHandler` now accepts the original tile directory URL passed into `NavigationDirections.configureRouter(tilesURL:completionHandler:)`; the number of tiles added is no longer passed in. ([#2477](https://github.com/mapbox/mapbox-navigation-ios/pull/2477))
 * Fixed a crash that occurred after setting `RouteOptions.shapeFormat` to `RouteShapeFormat.geoJSON`. ([valhalla/valhalla#1867](https://github.com/valhalla/valhalla/pull/1867))
 * Fixed an issue where some routes had unreasonably long expected travel times. ([valhalla/valhalla#2102](https://github.com/valhalla/valhalla/pull/2102))
 * Fixed incorrect routing at some intersections of divided roads where there are turn restrictions. ([valhalla/valhalla#2109](https://github.com/valhalla/valhalla/pull/2109))
