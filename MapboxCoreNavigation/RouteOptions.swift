@@ -1,5 +1,9 @@
 import MapboxDirections
 
+#if SWIFT_PACKAGE
+import CoreLocation
+#endif
+
 extension RouteOptions {
     internal var activityType: CLActivityType {
         switch self.profileIdentifier {

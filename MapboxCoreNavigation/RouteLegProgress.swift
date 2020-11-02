@@ -2,6 +2,10 @@
 import Foundation
 import MapboxDirections
 
+#if SWIFT_PACKAGE
+import CoreLocation
+#endif
+
 /**
  `RouteLegProgress` stores the user’s progress along a route leg.
  */

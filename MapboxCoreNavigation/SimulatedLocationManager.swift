@@ -2,6 +2,10 @@ import Foundation
 import MapboxDirections
 import Turf
 
+#if SWIFT_PACKAGE
+import CoreLocation
+#endif
+
 fileprivate let maximumSpeed: CLLocationSpeed = 30 // ~108 kmh
 fileprivate let minimumSpeed: CLLocationSpeed = 6 // ~21 kmh
 fileprivate var distanceFilter: CLLocationDistance = 10

@@ -2,6 +2,10 @@
 import Foundation
 import MapboxDirections
 
+#if SWIFT_PACKAGE
+import CoreLocation
+#endif
+
 /**
  `RouteStepProgress` stores the user’s progress along a route step.
  */

@@ -2,6 +2,10 @@ import Foundation
 import MapboxDirections
 import Turf
 
+#if SWIFT_PACKAGE
+import CoreLocation
+#endif
+
 /**
  `RouteProgress` stores the user’s progress along a route.
  */
