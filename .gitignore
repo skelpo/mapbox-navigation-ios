@@ -2,6 +2,8 @@ MapboxNavigation.xcworkspace
 
 .DS_Store
 .idea
+.build
+.swiftpm
 
 xcuserdata
 *.xccheckout

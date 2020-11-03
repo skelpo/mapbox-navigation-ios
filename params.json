@@ -1,0 +1,12 @@
+{
+    "configurationName": "Debug",
+    "activeRunDestination": {
+        "platform": "iphonesimulator",
+        "sdk": "iphonesimulator",
+        "sdkVariant": null,
+        "targetArchitecture": "x86_64",
+        "supportedArchitectures": ["x86_64"],
+        "disableOnlyActiveArch": false
+    },
+    "overrides": {}
+}

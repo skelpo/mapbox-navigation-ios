@@ -1,4 +1,4 @@
-#import <MapboxAccounts/MapboxAccounts-Swift.h>
+@import MapboxAccounts;
 
 NS_ASSUME_NONNULL_BEGIN
 

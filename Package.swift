@@ -14,33 +14,34 @@ let package = Package(
     ],
     dependencies: [
         .package(name: "MapboxAccounts", url: "git@github.com:skelpo/MapboxAccounts.git", .branch("main")),
-        .package(url: "git@github.com:skelpo/Mapbox.git", .branch("main")),
+        .package(name: "Mapbox", url: "git@github.com:skelpo/Mapbox.git", .branch("main")),
         .package(name: "MapboxNavigationNative", url: "git@github.com:skelpo/MapboxNativeNavigation.git", .branch("main")),
 
         .package(url: "https://github.com/skelpo/Solar.git", .branch("master")),
-        .package(url: "https://github.com/mapbox/turf-swift.git", from: "0.5.0"),
+        .package(name: "Turf", url: "https://github.com/mapbox/turf-swift.git", from: "0.5.0"),
         .package(name: "MapboxDirections", url: "https://github.com/mapbox/mapbox-directions-swift.git", from: "0.32.0"),
         .package(url: "https://github.com/mapbox/mapbox-speech-swift.git", from: "0.3.0")
     ],
     targets: [
         .target(
             name: "NavObjC",
-            dependencies: [],
+            dependencies: ["Mapbox"],
             path: "NavObjC"
         ),
         .target(
             name: "NavTestsObjC",
-            dependencies: [],
+            dependencies: ["MapboxAccounts"],
             path: "NavTestsObjC"
         ),
         .target(
             name: "NavCoreObjC",
-            dependencies: [],
+            dependencies: ["MapboxAccounts"],
             path: "NavCoreObjC"
         ),
         .target(
             name: "MapboxCoreNavigation",
             dependencies: [
+                "Turf",
                 "NavCoreObjC",
                 "MapboxAccounts",
                 "MapboxDirections",
