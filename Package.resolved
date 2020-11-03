@@ -15,8 +15,8 @@
         "repositoryURL": "https://github.com/mapbox/mapbox-directions-swift.git",
         "state": {
           "branch": null,
-          "revision": "89dc4f4ccae10813142f2c92f027e43e025d696b",
-          "version": "0.33.2"
+          "revision": "14543e919fe3f965925dff8b3814dbc27462e7c3",
+          "version": "1.0.0"
         }
       },
       {
@@ -24,8 +24,8 @@
         "repositoryURL": "https://github.com/mapbox/mapbox-speech-swift.git",
         "state": {
           "branch": null,
-          "revision": "b51da8dda1e1b6c5d7ff3d2914f7ebf41c721f7b",
-          "version": "0.3.1"
+          "revision": "aadf7ee8d71ba3ee2159df7b438793c8c5834400",
+          "version": "1.0.0"
         }
       },
       {
@@ -38,11 +38,20 @@
         }
       },
       {
+        "package": "MapboxCommon",
+        "repositoryURL": "git@github.com:skelpo/MapboxCommon.git",
+        "state": {
+          "branch": "main",
+          "revision": "eb558ef702d79a87347afb228dbfebc34f7fd5fe",
+          "version": null
+        }
+      },
+      {
         "package": "MapboxNavigationNative",
         "repositoryURL": "git@github.com:skelpo/MapboxNativeNavigation.git",
         "state": {
           "branch": "main",
-          "revision": "5cf2c8cbbb8f4deba8b96094770ee48b0da59e5c",
+          "revision": "29e009507f9a0f795e1bdf930cc544d91a9c1dea",
           "version": null
         }
       },
@@ -69,8 +78,8 @@
         "repositoryURL": "https://github.com/mapbox/turf-swift.git",
         "state": {
           "branch": null,
-          "revision": "985b4bdb7256c2f8adad10353b3338a466391469",
-          "version": "0.5.0"
+          "revision": "19d184102927cfc6dba49647850c6fd3e1f5f336",
+          "version": "1.0.0"
         }
       }
     ]

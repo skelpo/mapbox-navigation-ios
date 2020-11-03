@@ -13,14 +13,15 @@ let package = Package(
         .library(name: "MapboxCoreNavigation", targets: ["MapboxCoreNavigation"])
     ],
     dependencies: [
-        .package(name: "MapboxAccounts", url: "git@github.com:skelpo/MapboxAccounts.git", .branch("main")),
         .package(name: "Mapbox", url: "git@github.com:skelpo/Mapbox.git", .branch("main")),
+        .package(name: "MapboxCommon", url: "git@github.com:skelpo/MapboxCommon.git", .branch("main")),
+        .package(name: "MapboxAccounts", url: "git@github.com:skelpo/MapboxAccounts.git", .branch("main")),
         .package(name: "MapboxNavigationNative", url: "git@github.com:skelpo/MapboxNativeNavigation.git", .branch("main")),
 
         .package(url: "https://github.com/skelpo/Solar.git", .branch("master")),
-        .package(name: "Turf", url: "https://github.com/mapbox/turf-swift.git", from: "0.5.0"),
-        .package(name: "MapboxDirections", url: "https://github.com/mapbox/mapbox-directions-swift.git", from: "0.32.0"),
-        .package(url: "https://github.com/mapbox/mapbox-speech-swift.git", from: "0.3.0")
+        .package(name: "Turf", url: "https://github.com/mapbox/turf-swift.git", from: "1.0.0"),
+        .package(name: "MapboxDirections", url: "https://github.com/mapbox/mapbox-directions-swift.git", from: "1.0.0"),
+        .package(url: "https://github.com/mapbox/mapbox-speech-swift.git", from: "1.0.0")
     ],
     targets: [
         .target(
