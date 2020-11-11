@@ -8,4 +8,4 @@ FOUNDATION_EXPORT const unsigned char MapboxCoreNavigationVersionString[];
 
 #import "MBXAccounts+CoreNavigationAdditions.h"
 
-#import <MapboxCoreNavigation/MBXPeerWrapper.h>
+//#import <NavCoreObjC/MBXPeerWrapper.h>

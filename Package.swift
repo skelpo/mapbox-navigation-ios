@@ -6,7 +6,7 @@ let package = Package(
     name: "mapbox-navigation-ios",
     defaultLocalization: "da",
     platforms: [
-        .macOS(.v10_12), .iOS(.v10), .watchOS(.v4), .tvOS(.v12)
+        .iOS(.v10)
     ],
     products: [
         .library(name: "MapboxNavigation", targets: ["MapboxNavigation"]),
@@ -14,40 +14,35 @@ let package = Package(
     ],
     dependencies: [
         .package(name: "Mapbox", url: "git@github.com:skelpo/Mapbox.git", .branch("main")),
-        .package(name: "MapboxCommon", url: "git@github.com:skelpo/MapboxCommon.git", .branch("main")),
         .package(name: "MapboxAccounts", url: "git@github.com:skelpo/MapboxAccounts.git", .branch("main")),
         .package(name: "MapboxNavigationNative", url: "git@github.com:skelpo/MapboxNativeNavigation.git", .branch("main")),
+        .package(name: "MapboxMobileEvents", url: "https://github.com/mapbox/mapbox-events-ios.git", from: "0.10.5"),
 
-        .package(url: "https://github.com/skelpo/Solar.git", .branch("master")),
         .package(name: "Turf", url: "https://github.com/mapbox/turf-swift.git", from: "1.0.0"),
         .package(name: "MapboxDirections", url: "https://github.com/mapbox/mapbox-directions-swift.git", from: "1.0.0"),
-        .package(url: "https://github.com/mapbox/mapbox-speech-swift.git", from: "1.0.0")
+        .package(name: "MapboxSpeech", url: "https://github.com/mapbox/mapbox-speech-swift.git", from: "1.0.0"),
     ],
     targets: [
-        .target(
-            name: "NavObjC",
-            dependencies: ["Mapbox"],
+        .target(name: "NavObjC",
+            dependencies: [
+                .byName(name: "Mapbox")
+            ],
             path: "NavObjC"
         ),
-        .target(
-            name: "NavTestsObjC",
-            dependencies: ["MapboxAccounts"],
-            path: "NavTestsObjC"
-        ),
-        .target(
-            name: "NavCoreObjC",
-            dependencies: ["MapboxAccounts"],
+        .target(name: "NavCoreObjC",
+            dependencies: [
+                .byName(name: "MapboxAccounts")
+            ],
             path: "NavCoreObjC"
         ),
-        .target(
-            name: "MapboxCoreNavigation",
+        .target(name: "MapboxCoreNavigation",
             dependencies: [
-                "Turf",
-                "NavCoreObjC",
-                "MapboxAccounts",
-                "MapboxDirections",
-                "MapboxNavigationNative",
-                .product(name: "MapboxMobileEvents", package: "Mapbox")
+                .byName(name: "Turf"),
+                .target(name: "NavCoreObjC"),
+                .byName(name: "MapboxAccounts"),
+                .product(name: "MapboxDirections", package: "MapboxDirections"),
+                .product(name: "MapboxNavigationNative", package: "MapboxNavigationNative"),
+                .product(name: "MapboxMobileEvents", package: "MapboxMobileEvents"),
             ],
             path: "MapboxCoreNavigation",
             exclude: ["Info.plist"],
@@ -55,16 +50,29 @@ let package = Package(
         ),
         .target(
             name: "MapboxNavigation",
-            dependencies: ["MapboxCoreNavigation"],
+            dependencies: [
+                .product(name: "MapboxSpeech", package: "MapboxSpeech"),
+                .target(name: "MapboxCoreNavigation"),
+            ],
             path: "MapboxNavigation",
             exclude: ["Info.plist"],
             resources: [.process("Resources")]
         ),
         .testTarget(
             name: "MapboxNavigationTests",
-            dependencies: ["MapboxNavigation"],
+            dependencies: [.target(name: "MapboxNavigation")],
             path: "MapboxNavigationTests",
-            exclude: ["Info.plist"],
+            exclude: [
+                "Info.plist",
+                "BottomBannerSnapshotTests.swift",
+                "FBSnapshotTestCase.swift",
+                "InstructionsBannerViewSnapshotTests.swift",
+                "LaneTests.swift",
+                "ManeuverArrowTests.swift",
+                "ManeuverViewTests.swift",
+                "RouteControllerSnapshotTests.swift",
+                "SimulatedLocationManagerTests.swift",
+            ],
             resources: [
                 .copy("Fixtures"),
                 .copy("ReferenceImages"),
@@ -74,10 +82,23 @@ let package = Package(
         ),
         .testTarget(
             name: "MapboxCoreNavigationTests",
-            dependencies: ["MapboxCoreNavigation"],
+            dependencies: [
+                .target(name: "MapboxCoreNavigation")
+            ],
             path: "MapboxCoreNavigationTests",
             exclude: ["CocoaPodsTest", "Info.plist"],
             resources: [.copy("Fixtures")]
+        ),
+        .testTarget(name: "NavTestsObjC",
+            dependencies: [
+                .byName(name: "MapboxAccounts"),
+                .target(name: "NavObjC"),
+            ],
+            path: "NavTestsObjC",
+            exclude: [
+                "CPMapTemplate+MBTestable.h",
+                "CPMapTemplate+MBTestable.mm",
+            ]
         ),
     ]
 )

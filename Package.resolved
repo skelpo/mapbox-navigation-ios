@@ -6,7 +6,7 @@
         "repositoryURL": "git@github.com:skelpo/Mapbox.git",
         "state": {
           "branch": "main",
-          "revision": "6558381022dce5c841faaaf8bc9f314500d5a260",
+          "revision": "32da8ad4e5b879b5a655e5005efdab6cd841b716",
           "version": null
         }
       },
@@ -17,6 +17,15 @@
           "branch": null,
           "revision": "14543e919fe3f965925dff8b3814dbc27462e7c3",
           "version": "1.0.0"
+        }
+      },
+      {
+        "package": "MapboxMobileEvents",
+        "repositoryURL": "https://github.com/mapbox/mapbox-events-ios.git",
+        "state": {
+          "branch": null,
+          "revision": "cc8bf0ced64bffbff0d31499f20e48e252ff80cb",
+          "version": "0.10.5"
         }
       },
       {
@@ -33,16 +42,7 @@
         "repositoryURL": "git@github.com:skelpo/MapboxAccounts.git",
         "state": {
           "branch": "main",
-          "revision": "08609abd17e7b627f6fed7999a9f3e465816ec61",
-          "version": null
-        }
-      },
-      {
-        "package": "MapboxCommon",
-        "repositoryURL": "git@github.com:skelpo/MapboxCommon.git",
-        "state": {
-          "branch": "main",
-          "revision": "eb558ef702d79a87347afb228dbfebc34f7fd5fe",
+          "revision": "88d007bf0aec82cccc6d83d38644691e0a7bce30",
           "version": null
         }
       },
@@ -51,7 +51,7 @@
         "repositoryURL": "git@github.com:skelpo/MapboxNativeNavigation.git",
         "state": {
           "branch": "main",
-          "revision": "29e009507f9a0f795e1bdf930cc544d91a9c1dea",
+          "revision": "d7b9cf8118237479b1b36366b7621e2fc31f9820",
           "version": null
         }
       },
@@ -65,21 +65,12 @@
         }
       },
       {
-        "package": "Solar",
-        "repositoryURL": "https://github.com/skelpo/Solar.git",
-        "state": {
-          "branch": "master",
-          "revision": "64ccc2224cc02fd3921483c823feccf36c0c4141",
-          "version": null
-        }
-      },
-      {
         "package": "Turf",
         "repositoryURL": "https://github.com/mapbox/turf-swift.git",
         "state": {
           "branch": null,
-          "revision": "19d184102927cfc6dba49647850c6fd3e1f5f336",
-          "version": "1.0.0"
+          "revision": "ee24a33eb9f02bf2715d3e0d3bcebbf302376af6",
+          "version": "1.1.0"
         }
       }
     ]
