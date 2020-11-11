@@ -18,6 +18,7 @@ let package = Package(
         .package(name: "MapboxNavigationNative", url: "git@github.com:skelpo/MapboxNativeNavigation.git", .branch("main")),
         .package(name: "MapboxMobileEvents", url: "https://github.com/mapbox/mapbox-events-ios.git", from: "0.10.5"),
 
+        .package(url: "https://github.com/skelpo/Solar.git", .branch("master")),
         .package(name: "Turf", url: "https://github.com/mapbox/turf-swift.git", from: "1.0.0"),
         .package(name: "MapboxDirections", url: "https://github.com/mapbox/mapbox-directions-swift.git", from: "1.0.0"),
         .package(name: "MapboxSpeech", url: "https://github.com/mapbox/mapbox-speech-swift.git", from: "1.0.0"),
@@ -52,6 +53,7 @@ let package = Package(
             name: "MapboxNavigation",
             dependencies: [
                 .product(name: "MapboxSpeech", package: "MapboxSpeech"),
+                .byName(name: "Solar"),
                 .target(name: "MapboxCoreNavigation"),
             ],
             path: "MapboxNavigation",
@@ -83,7 +85,8 @@ let package = Package(
         .testTarget(
             name: "MapboxCoreNavigationTests",
             dependencies: [
-                .target(name: "MapboxCoreNavigation")
+                .target(name: "MapboxCoreNavigation"),
+                .target(name: "TestHelper"),
             ],
             path: "MapboxCoreNavigationTests",
             exclude: ["CocoaPodsTest", "Info.plist"],
@@ -99,6 +102,30 @@ let package = Package(
                 "CPMapTemplate+MBTestable.h",
                 "CPMapTemplate+MBTestable.mm",
             ]
+        ),
+        .target(name: "TestHelper",
+            dependencies: [
+                .target(name: "TestHelperObjC"),
+                .target(name: "MapboxNavigation"),
+            ],
+            path: "TestHelper",
+            exclude: [
+                "Info.plist"
+            ],
+            resources: [
+                .copy("Fixtures"),
+                .copy("tiles"),
+                .copy("li.tar"),
+                .copy("GGPark-to-BernalHeights.route"),
+                .copy("UnionSquare-to-GGPark.route"),
+                .copy("turn_left.data"),
+            ]
+        ),
+        .target(name: "TestHelperObjC",
+            dependencies: [
+                .product(name: "MapboxMobileEvents", package: "MapboxMobileEvents"),
+            ],
+            path: "TestHelperObjC"
         ),
     ]
 )
