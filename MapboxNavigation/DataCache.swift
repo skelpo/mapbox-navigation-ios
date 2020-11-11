@@ -1,4 +1,5 @@
 import Foundation
+import UIKit
 
 public class DataCache: BimodalDataCache {
     let memoryCache: NSCache<NSString, NSData>

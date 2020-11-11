@@ -1,6 +1,7 @@
 import UIKit
 import Mapbox
 import MapboxCoreNavigation
+import NavObjC
 
 /**
  An object that notifies a map view when the user’s location changes, minimizing the noise that normally accompanies location updates from a `CLLocationManager` object.

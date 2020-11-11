@@ -1,4 +1,5 @@
 import Foundation
+import UIKit
 import MapboxDirections
 
 typealias ImageDownloadCompletionBlock = (UIImage?, Data?, Error?) -> Void

@@ -1,6 +1,10 @@
 import Foundation
 import MapboxDirections
 
+#if SWIFT_PACKAGE
+import CoreLocation
+#endif
+
 typealias CongestionSegment = ([CLLocationCoordinate2D], CongestionLevel)
 
 /**

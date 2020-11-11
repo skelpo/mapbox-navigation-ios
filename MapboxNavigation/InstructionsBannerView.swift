@@ -2,6 +2,10 @@ import UIKit
 import MapboxCoreNavigation
 import MapboxDirections
 
+#if SWIFT_PACKAGE
+import CoreLocation
+#endif
+
 /**
  `InstructionsBannerViewDelegate` provides methods for reacting to user interactions in `InstructionsBannerView`.
  */

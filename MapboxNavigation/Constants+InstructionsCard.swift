@@ -1,3 +1,8 @@
+import CoreGraphics
+#if SWIFT_PACKAGE
+import CoreLocation
+#endif
+
 /// :nodoc:
 struct InstructionsCardConstants {
     static let highlightDistance: CLLocationDistance = 152.4 // 500 ft

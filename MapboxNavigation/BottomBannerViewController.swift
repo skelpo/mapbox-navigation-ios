@@ -2,6 +2,10 @@ import UIKit
 import MapboxCoreNavigation
 import MapboxDirections
 
+#if SWIFT_PACKAGE
+import CoreLocation
+#endif
+
 /**
  `BottomBannerViewControllerDelegate` provides a method for reacting to the user tapping on the "cancel" button in the `BottomBannerViewController`.
  */

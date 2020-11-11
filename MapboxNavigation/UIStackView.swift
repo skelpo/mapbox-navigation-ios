@@ -1,4 +1,5 @@
 import Foundation
+import UIKit
 
 extension UIStackView {
     convenience init(orientation: NSLayoutConstraint.Axis, alignment: UIStackView.Alignment? = nil, distribution: UIStackView.Distribution? = nil, spacing: CGFloat? = nil, autoLayout: Bool = false) {

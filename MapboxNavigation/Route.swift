@@ -1,6 +1,10 @@
 import MapboxDirections
 import Turf
 
+#if SWIFT_PACKAGE
+import CoreLocation
+#endif
+
 extension Route {
     /**
      Returns a polyline extending a given distance in either direction from a given maneuver along the route.

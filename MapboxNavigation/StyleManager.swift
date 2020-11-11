@@ -2,6 +2,10 @@ import UIKit
 import Solar
 import MapboxCoreNavigation
 
+#if SWIFT_PACKAGE
+import CoreLocation
+#endif
+
 /**
  The `StyleManagerDelegate` protocol defines a set of methods used for controlling the style.
  */

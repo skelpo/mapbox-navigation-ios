@@ -1,4 +1,6 @@
 import Foundation
+import UIKit
+import Dispatch
 
 enum DownloadError: Error {
     case serverError

@@ -1,4 +1,5 @@
 import Foundation
+import UIKit
 
 class ImageRepository {
     public var sessionConfiguration: URLSessionConfiguration = URLSessionConfiguration.default {

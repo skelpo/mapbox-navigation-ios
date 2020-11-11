@@ -2,6 +2,10 @@ import UIKit
 import MapboxDirections
 import MapboxCoreNavigation
 
+#if SWIFT_PACKAGE
+import CoreLocation
+#endif
+
 /// :nodoc:
 public class InstructionsCardView: BaseInstructionsBannerView {
     

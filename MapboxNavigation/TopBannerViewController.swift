@@ -1,6 +1,11 @@
 import Foundation
+import UIKit
 import MapboxCoreNavigation
 import MapboxDirections
+
+#if SWIFT_PACKAGE
+import CoreLocation
+#endif
 
 public protocol TopBannerViewControllerDelegate: class, UnimplementedLogging {
     func topBanner(_ banner: TopBannerViewController, didSwipeInDirection direction: UISwipeGestureRecognizer.Direction)
