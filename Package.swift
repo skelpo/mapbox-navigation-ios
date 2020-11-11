@@ -55,6 +55,7 @@ let package = Package(
                 .product(name: "MapboxSpeech", package: "MapboxSpeech"),
                 .byName(name: "Solar"),
                 .target(name: "MapboxCoreNavigation"),
+                .target(name: "NavObjC")
             ],
             path: "MapboxNavigation",
             exclude: ["Info.plist"],
@@ -92,14 +93,14 @@ let package = Package(
             exclude: ["CocoaPodsTest", "Info.plist"],
             resources: [.copy("Fixtures")]
         ),
-        .testTarget(name: "NavTestsObjC",
+        .target(name: "NavTestsObjC",
             dependencies: [
                 .byName(name: "MapboxAccounts"),
                 .target(name: "NavObjC"),
             ],
             path: "NavTestsObjC",
             exclude: [
-                "CPMapTemplate+MBTestable.h",
+                "include/CPMapTemplate+MBTestable.h",
                 "CPMapTemplate+MBTestable.mm",
             ]
         ),
